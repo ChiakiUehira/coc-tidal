@@ -1,7 +1,7 @@
 {
   "name": "coc-tidal",
-  "version": "0.0.0-development",
-  "description": "TidalCyles",
+  "version": "1.0.0",
+  "description": "TidalCyles extension for coc.nvim",
   "author": "Chiaki Uehira <me@uurr.io>",
   "license": "MIT",
   "main": "lib/index.js",
@@ -21,7 +21,7 @@
   "prettier": {
     "singleQuote": true,
     "printWidth": 120,
-    "semi": true
+    "semi": false
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.8.2",
@@ -36,17 +36,21 @@
     "typescript": "^4.1.2"
   },
   "activationEvents": [
-    "*"
+    "onLanguage:tidal"
   ],
   "contributes": {
     "configuration": {
       "type": "object",
       "title": "coc-tidal configuration",
       "properties": {
-        "coc-tidal.enabled": {
+        "tidal.enabled": {
           "type": "boolean",
           "default": true,
           "description": "Enable coc-tidal extension"
+        },
+        "tidal.samplePath": {
+          "type": "string",
+          "description": "your samples directory (Dirt-samples)"
         }
       }
     },

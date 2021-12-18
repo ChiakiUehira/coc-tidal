@@ -1,54 +1,44 @@
-import { commands, CompleteResult, ExtensionContext, listManager, sources, window, workspace } from 'coc.nvim';
-import DemoList from './lists';
+import fs from 'fs'
+import { commands, CompleteResult, ExtensionContext, listManager, sources, window, workspace } from 'coc.nvim'
+import DemoList from './lists'
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  window.showMessage(`coc-tidal works!`);
+  // not enable
+  const enable = workspace.getConfiguration('tidal').get<boolean>('enable')
+  if (enable) return
 
+  const samples = getSamples()
+  context.subscriptions.push(listManager.registerList(new DemoList(workspace.nvim)))
   context.subscriptions.push(
-    commands.registerCommand('coc-tidal.Command', async () => {
-      window.showMessage(`coc-tidal Commands works!`);
-    }),
-
-    listManager.registerList(new DemoList(workspace.nvim)),
-
     sources.createSource({
-      name: 'coc-tidal completion source', // unique id
+      name: 'coc-tidal completion source',
       doComplete: async () => {
-        const items = await getCompletionItems();
-        return items;
-      },
-    }),
-
-    workspace.registerKeymap(
-      ['n'],
-      'tidal-keymap',
-      async () => {
-        window.showMessage(`registerKeymap`);
-      },
-      { sync: false }
-    ),
-
-    workspace.registerAutocmd({
-      event: 'InsertLeave',
-      request: true,
-      callback: () => {
-        window.showMessage(`registerAutocmd on InsertLeave`);
+        const items = await getCompletionItems(samples)
+        return items
       },
     })
-  );
+  )
 }
 
-async function getCompletionItems(): Promise<CompleteResult> {
+async function getCompletionItems(samples: string[]): Promise<CompleteResult> {
+  const items = samples.map((sample) => {
+    return {
+      word: sample,
+      menu: '[Tidal - Samples]',
+    }
+  })
   return {
-    items: [
-      {
-        word: 'TestCompletionItem 1',
-        menu: '[coc-tidal]',
-      },
-      {
-        word: 'TestCompletionItem 2',
-        menu: '[coc-tidal]',
-      },
-    ],
-  };
+    items,
+  }
+}
+
+function getSamples(): string[] {
+  const path = workspace.getConfiguration('tidal').get<string[]>('samplePath')
+  try {
+    const samples = fs.readdirSync(path)
+    return samples
+  } catch (err) {
+    window.showErrorMessage('coc-tidal: Samples couldn’t load')
+    return []
+  }
 }
