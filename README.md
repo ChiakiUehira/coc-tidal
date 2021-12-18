@@ -1,18 +1,39 @@
 # coc-tidal
 
-TidalCyles
+TidalCycles extension for coc.nvim
 
 ## Install
 
 `:CocInstall coc-tidal`
 
-## Keymaps
+## Features
 
-`nmap <silent> <C-l> <Plug>(coc-coc-tidal-keymap)`
+- AutoCompletion
+  - [x] sample name.
+  - [] synth name.
+  - [] functions
+- Search
+  - [] samples
+  - [] synth
+  - [] functions
 
-## Lists
 
-`:CocList demo_list`
+## Extension Settings
+
+### Set samples path
+
+Set the path of the samples directory to load
+
+Examples:
+
+```
+"tidal.samplePath": "/Users/chiakiuehira/Library/Application Support/SuperCollider/downloaded-quarks/Dirt-Samples"
+```
+
+### Configuration options
+
+- `tidal.enabled` Enable this plugin.
+- `tidal.samplePath` Set the path of the samples directory to load.
 
 ## License
 
