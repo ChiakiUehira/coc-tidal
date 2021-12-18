@@ -38,8 +38,8 @@ Examples:
 
 ### Configuration options
 
-- `tidal.enabled` Enable this plugin.
-- `tidal.samplePath` Set the path of the samples directory to load.
+- `tidal.enabled` Enable this plugin. default:`true`
+- `tidal.samplePath` Set the path of the samples directory to load. default: `""`
 
 ## License
 
