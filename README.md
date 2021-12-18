@@ -14,15 +14,22 @@ coc.nvim extension for TidalCycles
 
 ## Features
 
-- AutoCompletion
-  - [x] sample name.
-  - [ ] synth name.
+- AutoCompletions
+  - [x] sample name
+  - [ ] synth name
   - [ ] functions
-- Search
-  - [ ] samples
-  - [ ] synth
+- Searchs
+  - [x] samples name
+  - [ ] synth name
   - [ ] functions
 
+### Search
+
+search for sample name
+
+```
+:CocList samples
+```
 
 ## Extension Settings
 

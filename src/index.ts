@@ -1,14 +1,13 @@
-import fs from 'fs'
 import { commands, CompleteResult, ExtensionContext, listManager, sources, window, workspace } from 'coc.nvim'
-import DemoList from './lists'
+import { getSamples } from './helpers/getSamples'
+import SamplesList from './lists/samples'
 
 export async function activate(context: ExtensionContext): Promise<void> {
-  // not enable
   const enable = workspace.getConfiguration('tidal').get<boolean>('enable')
   if (enable) return
 
   const samples = getSamples()
-  context.subscriptions.push(listManager.registerList(new DemoList(workspace.nvim)))
+  context.subscriptions.push(listManager.registerList(new SamplesList(workspace.nvim)))
   context.subscriptions.push(
     sources.createSource({
       name: 'coc-tidal completion source',
@@ -29,16 +28,5 @@ async function getCompletionItems(samples: string[]): Promise<CompleteResult> {
   })
   return {
     items,
-  }
-}
-
-function getSamples(): string[] {
-  const path = workspace.getConfiguration('tidal').get<string[]>('samplePath')
-  try {
-    const samples = fs.readdirSync(path)
-    return samples
-  } catch (err) {
-    window.showErrorMessage('coc-tidal: Samples couldn’t load')
-    return []
   }
 }
