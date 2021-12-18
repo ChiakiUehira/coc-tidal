@@ -6,8 +6,17 @@
   "license": "MIT",
   "main": "lib/index.js",
   "keywords": [
-    "coc.nvim"
+    "coc.nvim",
+    "TidalCycles",
+    "tidal",
+    "livecoding",
+    "algorave"
   ],
+  "publisher": "ChiakiUehira",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChiakiUehira/coc-tidal"
+  },
   "engines": {
     "coc": "^0.0.80"
   },
