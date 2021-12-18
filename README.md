@@ -17,7 +17,7 @@ coc.nvim extension for TidalCycles
 - AutoCompletions
   - [x] sample name
   - [ ] synth name
-  - [ ] functions
+  - [x] functions
 - Searchs
   - [x] samples name
   - [ ] synth name
@@ -47,6 +47,18 @@ Examples:
 
 - `tidal.enabled` Enable this plugin. default: `true`
 - `tidal.samplePath` Set the path of the samples directory to load. default: `""`
+
+## Please
+
+The documentation for the basic functions is incomplete.
+
+Please edit the following file and send a PullRequest.
+
+[docs.json]: https://github.com/ChiakiUehira/coc-tidal/blob/main/docs.json
+
+This definition was created using the following file as a reference. Thanks.
+
+[https://gist.github.com/mxactvtd/bf3fb357a419c7f063b98dfd9a66cf78]: https://gist.github.com/mxactvtd/bf3fb357a419c7f063b98dfd9a66cf78
 
 ## License
 
