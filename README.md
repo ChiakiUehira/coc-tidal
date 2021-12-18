@@ -6,16 +6,22 @@ TidalCycles extension for coc.nvim
 
 `:CocInstall coc-tidal`
 
+## Screenshot
+
+![screenshot](https://user-images.githubusercontent.com/12339312/146631261-f29c3092-83f4-4f94-a1f3-a8cefd639f47.png)
+
+
+
 ## Features
 
 - AutoCompletion
   - [x] sample name.
-  - [] synth name.
-  - [] functions
+  - [ ] synth name.
+  - [ ] functions
 - Search
-  - [] samples
-  - [] synth
-  - [] functions
+  - [ ] samples
+  - [ ] synth
+  - [ ] functions
 
 
 ## Extension Settings
