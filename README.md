@@ -1,6 +1,6 @@
 # coc-tidal
 
-TidalCycles extension for coc.nvim
+coc.nvim extension for TidalCycles
 
 ## Install
 
@@ -38,7 +38,7 @@ Examples:
 
 ### Configuration options
 
-- `tidal.enabled` Enable this plugin. default:`true`
+- `tidal.enabled` Enable this plugin. default: `true`
 - `tidal.samplePath` Set the path of the samples directory to load. default: `""`
 
 ## License

@@ -1,7 +1,7 @@
 {
   "name": "coc-tidal",
-  "version": "1.0.0",
-  "description": "TidalCycles extension for coc.nvim",
+  "version": "1.0.1",
+  "description": "coc.nvim extension for TidalCycles",
   "author": "Chiaki Uehira <me@uurr.io>",
   "license": "MIT",
   "main": "lib/index.js",
