@@ -1,10 +1,10 @@
 import { BasicList, ListAction, ListContext, ListItem, Neovim, window, workspace } from 'coc.nvim'
 import { Position, Range, TextEdit } from 'vscode-languageserver-protocol'
-import { getSamples } from '../helpers/getSamples'
+import { getBasics } from '../helpers/getBasics'
 
-export default class SamplesList extends BasicList {
-  public readonly name = 'samples'
-  public readonly description = 'search for samples'
+export default class BasicsList extends BasicList {
+  public readonly name = 'basics'
+  public readonly description = 'search for basic function'
   public readonly defaultAction = 'append'
   public actions: ListAction[] = []
 
@@ -30,11 +30,11 @@ export default class SamplesList extends BasicList {
   }
 
   public async loadItems(): Promise<ListItem[]> {
-    const samples = getSamples()
-    return samples.map((sample) => {
+    const basics = getBasics()
+    return basics.map((basic) => {
       return {
-        label: sample,
-        data: sample,
+        label: basic.name,
+        data: basic.name,
       }
     })
   }

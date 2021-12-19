@@ -21,7 +21,7 @@ coc.nvim extension for TidalCycles
 - Searchs
   - [x] samples name
   - [ ] synth name
-  - [ ] functions
+  - [x] functions
 
 ### Search
 
@@ -30,6 +30,13 @@ search for sample name
 ```
 :CocList samples
 ```
+
+search for basic functions
+
+```
+:CocList basics
+```
+
 
 ## Extension Settings
 
