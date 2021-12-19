@@ -1,1 +1,1 @@
-d1 $ sound "house-synth*4"
+d1 $ within $ sound "house-synth*4" # room 1 

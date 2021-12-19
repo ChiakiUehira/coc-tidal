@@ -1,6 +1,7 @@
-import { commands, CompleteResult, ExtensionContext, listManager, sources, window, workspace } from 'coc.nvim'
+import { commands, CompleteResult, ExtensionContext, listManager, sources, languages, workspace } from 'coc.nvim'
 import { BasicType, getBasics } from './helpers/getBasics'
 import { getSamples } from './helpers/getSamples'
+import { BasicHoverProvider } from './hover'
 import BasicsList from './lists/basics'
 import SamplesList from './lists/samples'
 
@@ -10,6 +11,7 @@ export async function activate(context: ExtensionContext): Promise<void> {
 
   const samples = getSamples()
   const basics = getBasics()
+  context.subscriptions.push(languages.registerHoverProvider(['tidal'], new BasicHoverProvider(context)))
   context.subscriptions.push(listManager.registerList(new SamplesList(workspace.nvim)))
   context.subscriptions.push(listManager.registerList(new BasicsList(workspace.nvim)))
   context.subscriptions.push(

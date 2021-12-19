@@ -22,6 +22,8 @@ coc.nvim extension for TidalCycles
   - [x] samples name
   - [ ] synth name
   - [x] functions
+- Hovers (coc hover)
+  - [x] functions 
 
 ### Search
 
